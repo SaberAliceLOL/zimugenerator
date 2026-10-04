@@ -59,7 +59,24 @@ pip install -r requirements.txt
 
 > 依赖不含 PyTorch，体积大幅减小，首次安装较快。
 
-### 3. 启动
+### 3. 获取翻译模型
+
+识别模型首次运行会自动下载；翻译模型（OPUS-MT）需手动转换获取：
+
+```bash
+# 临时安装转换依赖（仅转换时需要，转换后可卸载）
+pip install transformers torch
+
+# 一键转换（默认走 hf-mirror 镜像，约 600 MB）
+python download_models.py
+
+# （可选）转换完成后卸载 torch/transformers 以节省空间
+pip uninstall -y torch transformers
+```
+
+转换完成后，`models/` 目录下会生成 `opus-mt-zh-en/` 和 `opus-mt-en-zh/` 两个模型。
+
+### 4. 启动
 
 ```bash
 python run.py
@@ -71,7 +88,7 @@ python run.py
 2. 按需调整：模型大小、计算设备、字号、位置、编码方式。
 3. 点「开始生成字幕」。
 
-首次运行会自动下载识别模型（约 1.6 GB）。翻译模型（OPUS-MT，约 600 MB）需放在程序同级的 `models` 目录。
+首次运行会自动下载识别模型（约 1.6 GB）；翻译模型（OPUS-MT）通过 `python download_models.py` 获取（见「安装」第 3 步）。
 
 输出文件与源视频同目录，命名为 `<原文件名>_字幕.mp4`。
 
