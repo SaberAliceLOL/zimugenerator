@@ -1,0 +1,27 @@
+# 虚拟环境
+venv/
+
+# 打包产物
+dist/
+build/
+
+# 模型（体积大，运行时下载/转换生成，不放仓库）
+models/
+.hf_cache/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.pyd
+
+# 日志与临时文件
+*.log
+启动错误.log
+extracted_icon.ico
+
+# Claude Code 本地配置（含本地路径，不共享）
+.claude/
+
+# 系统文件
+Thumbs.db
+.DS_Store

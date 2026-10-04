@@ -1,0 +1,6 @@
+faster-whisper>=1.0.3
+av>=12,<19
+onnxruntime>=1.17.0
+PySide6>=6.6.0
+sentencepiece>=0.2.0
+ctranslate2>=4.0.0
